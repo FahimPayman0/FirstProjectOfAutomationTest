@@ -47,12 +47,12 @@ public class BaseTest {
     public void setUp(@Optional String browser){
         driver = Driver.getDriver(browser);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.get(ConfigReader.getProperties("url"));
     }
 
-     /*  @AfterMethod
+       @AfterMethod
     public void close(ITestResult result) throws IOException {
      if (result.getStatus()==ITestResult.FAILURE){
             extentLogger.fail(result.getName());
@@ -74,11 +74,11 @@ public class BaseTest {
         }
 
         Driver.closeDriver();
-    }*/
+    }
 
-  /*  @AfterTest
+    @AfterTest
     public void reportKapat(){
         reports.flush();
 
-    }*/
+    }
 }

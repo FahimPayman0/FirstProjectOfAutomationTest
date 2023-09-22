@@ -6,11 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 
-public class PageObject {
+public abstract class PageObject {
 
     public PageObject(){
 
-        PageFactory.initElements(Driver.getDriver(),this);
+       PageFactory.initElements(Driver.getDriver(),this);
 
     }
 

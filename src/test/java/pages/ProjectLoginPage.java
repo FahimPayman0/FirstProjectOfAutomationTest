@@ -8,7 +8,7 @@ import utilities.ConfigReader;
 
 
 
-public class ProjectLoginPage extends PageObject{
+public class ProjectLoginPage extends PageObject {
     WebDriver driver;
     @FindBy(xpath = "//li[@class='dropdown']")
     public WebElement myAccount;
@@ -31,10 +31,13 @@ public class ProjectLoginPage extends PageObject{
     public WebElement monitor;
 
     @FindBy(xpath = "//h2")
-    public WebElement verification;
+    public WebElement monitorText;
 
     @FindBy(xpath = "//h3")
-    public WebElement verify;
+    public WebElement displayText;
+
+    @FindBy(xpath = "//a[text()='Desktops']")
+    public WebElement homePage;
 
 
 
@@ -44,7 +47,6 @@ public class ProjectLoginPage extends PageObject{
 
         myAccount.click();
         login.click();
-
         username.sendKeys(ConfigReader.getProperties("username"));
         password.sendKeys(ConfigReader.getProperties("password"));
         loginButton.click();
@@ -52,23 +54,22 @@ public class ProjectLoginPage extends PageObject{
     }
 
 
-    public void navigateBack(){
-      driver.navigate().back();
-      verify.isDisplayed();
-
-    }
-
     public void hover(){
         Actions actions = new Actions(driver);
         actions.moveToElement(component).perform();
         monitor.isDisplayed();
     }
 
+    public void navigateBack(){
+        driver.navigate().back();
+
+    }
+
     public void navigateTo(){
 
         component.click();
         monitor.click();
-        verification.isDisplayed();
+        monitorText.isDisplayed();
 
     }
 
