@@ -8,7 +8,7 @@ import utilities.ConfigReader;
 
 
 
-public class ProjectLoginPage extends PageObject {
+public class ProjectLoginPage extends PageObject{
     WebDriver driver;
     @FindBy(xpath = "//li[@class='dropdown']")
     public WebElement myAccount;
@@ -41,14 +41,13 @@ public class ProjectLoginPage extends PageObject {
 
 
 
-
     //************Methods************\\
     public void loginMethod() {
 
         myAccount.click();
         login.click();
-        username.sendKeys(ConfigReader.getProperties("username"));
-        password.sendKeys(ConfigReader.getProperties("password"));
+        username.sendKeys(ConfigReader.getpProperties("username"));
+        password.sendKeys(ConfigReader.getpProperties("password"));
         loginButton.click();
 
     }
